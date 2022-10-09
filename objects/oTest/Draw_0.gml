@@ -1,0 +1,9 @@
+draw_text(10,  10, CrapPointerGet(globalPointer1));
+draw_text(10,  30, CrapPointerGetChanged(globalPointer1));
+draw_text(10,  50, CrapPointerGetChangedNoUpdate(globalPointer2));
+draw_text(10,  90, CrapPointerGet(instancePointer1));
+draw_text(10, 110, CrapPointerGetChanged(instancePointer1));
+draw_text(10, 130, CrapPointerGetChangedNoUpdate(instancePointer2));
+draw_text(10, 170, CrapPointerGet(structPointer1));
+draw_text(10, 190, CrapPointerGetChanged(structPointer1));
+draw_text(10, 210, CrapPointerGetChangedNoUpdate(structPointer2));
