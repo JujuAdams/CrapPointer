@@ -1,4 +1,4 @@
-<h1 align="center">CrapPointer 1.0.0</h1>
+<h1 align="center">CrapPointer 1.0.1</h1>
 
 <p align="center">Crappy pointers for GameMaker Studio 2022.3 by <b>@jujuadams</b></p>
 
@@ -12,7 +12,7 @@ CrapPointer is a rudimentary implementation of pointer-like behaviour for GameMa
 
 A crapPointer is created using the appropriately named `CrapPointer()` function. It must be given a scope (an instance or a struct or the keyword `global`) and a variable name as a string. A crapPointer cannot be created to a variable that does not yet exist. You can get the value of the variable that the pointer references by using `CrapPointerGet()` and you can set the variable using `CrapPointerSet()`.
 
-You cannot create pointers to arrays due to limitations with GameMaker's `weak_ref_create()`.
+**You cannot create pointers to arrays due to limitations with GameMaker's `weak_ref_create()`.**
 
 CrapPointers aren't very fast. I recommend you use local `var` caching of values in order to squeeze extra performance out of crapPointers i.e.
 
@@ -50,10 +50,12 @@ function MathsIsNotYetRipe(_pointer)
 
 crapPointers are stored using weak references so won't keep references alive. You can check whether a crapPointer references a variable in a struct that's alive by using `CrapPointerGetAlive()`. This function always returns `true` for a pointer that references a variable in `global` scope. If you try to get the value of a variable in a struct that has been garbage collected, `CrapPointerGet()` will return `undefined`.
 
-If a variable has been removed from a struct, a crapPointer will be treated as unalive.
+**If a variable has been removed from a struct, a crapPointer will be treated as unalive and `CrapPointerGet()` will return `undefined` accordingly.**
 
 crapPointers also have an internal "has the value of this variable changed" tracking system, use of which is purely optional. You can check whether the value of a variable has changed by using `CrapPointerGetChanged()`. This function will return `true` if the current value of the variable is different to the cached value stored in the pointer; the cached value inside the pointer is then updated. This means that changes are only detected when `CrapPointerGetChanged()` is called. If a variable changes from e.g. `1` to `2` and back to `1` between calls to `CrapPointerGetChanged()` then no change will be reported.
 
 If you'd like to check if a change has occurred without updating the cached value inside the pointer then please use `CrapPointerGetChangedNoUpdate()`. This is likely to have limited uses (if you need to check for updates at different times then you should make multiple pointers) but it's there if you need it.
+
+**A crapPointer will not track changes made to variables that contain structs or arrays.**
 
 crapPointers themselves are three-element arrays - the weak reference to the scope the variable is held in, the name of the variable, and the cached value of the variable. This means that you cannot create a crapPointer that references a crapPointer. This is for the best. It's a reasonable assertion that using a struct to represent a crapPointer is preferable (with `CrapPointerGet()` being expressed as `crapPointer.Get()` instead) but structs are a few hundred bytes a pop in GameMaker and recent experience on mobile has made me allergic to taking RAM for granted.
