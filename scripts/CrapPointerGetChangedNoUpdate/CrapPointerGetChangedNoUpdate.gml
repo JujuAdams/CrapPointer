@@ -3,12 +3,14 @@
 function CrapPointerGetChangedNoUpdate(_crapPointer)
 {
     var _scope = _crapPointer[0];
-    if (_scope == global)
+    if (_scope != global)
     {
-        return (_scope[$ _crapPointer[1]] != _crapPointer[2]);
+        if (!weak_ref_alive(_scope)) return false;
+        _scope = _scope.ref;
     }
-    else
-    {
-        return weak_ref_alive(_scope)? (_scope.ref[$ _crapPointer[1]] != _crapPointer[2]) : false;
-    }
+    
+    var _newValue = _scope[$ _crapPointer[1]];
+    if (is_struct(_newValue) || is_array(_newValue)) _newValue = undefined;
+    
+    return (_newValue != _crapPointer[2]);
 }

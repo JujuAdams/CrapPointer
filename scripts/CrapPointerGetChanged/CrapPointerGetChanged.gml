@@ -9,10 +9,10 @@ function CrapPointerGetChanged(_crapPointer)
         _scope = _scope.ref;
     }
     
-    var _variableName = _crapPointer[1];
-    var _newValue = _scope[$ _variableName];
-    var _changed = (_scope[$ _variableName] != _crapPointer[2]);
+    var _newValue = _scope[$ _crapPointer[1]];
+    if (is_struct(_newValue) || is_array(_newValue)) _newValue = undefined;
     
+    var _changed = (_newValue != _crapPointer[2]);
     _crapPointer[@ 2] = _newValue;
     
     return _changed;
