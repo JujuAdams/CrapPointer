@@ -17,4 +17,4 @@ function CrapPointer(_scope, _variableName)
     return [(_scope == global)? _scope : weak_ref_create(_scope), _variableName, _value];
 }
 
-show_debug_message("Welcome to CrapPointer by @jujuadams! This is version 1.0.0, 2022-10-09");
+show_debug_message("Welcome to CrapPointer by @jujuadams! This is version 1.0.1, 2022-10-10");
