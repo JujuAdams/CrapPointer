@@ -8,7 +8,7 @@
 
 &nbsp;
 
-CrapPointer is a rudimentary implementation of pointer-like behaviour for GameMaker. These pointers allow you to store a reference to a variable stored in either an instance, struct, or `global` scope, and then get/set that variable later. I'm told this is sort of the same idea as Rust's box pointers or C++'s smart pointers, but I have no idea if that's accurate or not.
+CrapPointer is a rudimentary implementation of pointer-like behaviour for GameMaker. These pointers allow you to store a reference to a variable stored in either an instance, struct, or `global` scope, and then get/set that variable later by reference. I'm told this is sort of the same idea as Rust's box pointers or C++'s smart pointers, but I have no idea if that's accurate or not.
 
 A crapPointer is created using the appropriately named `CrapPointer()` function. It must be given a scope (an instance or a struct or the keyword `global`) and a variable name as a string. A crapPointer cannot be created to a variable that does not yet exist. You can get the value of the variable that the pointer references by using `CrapPointerGet()` and you can set the variable using `CrapPointerSet()`.
 
