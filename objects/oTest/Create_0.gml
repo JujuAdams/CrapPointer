@@ -45,3 +45,9 @@ catch(_error)
 struct.hello = 30;
 structPointer1 = CrapPointer(struct, "hello");
 structPointer2 = CrapPointer(struct, "hello");
+
+
+
+array = [];
+arrayContainerPointer1 = CrapPointer(self, "array");
+arrayContainerPointer2 = CrapPointer(self, "array");

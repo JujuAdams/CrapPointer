@@ -7,3 +7,6 @@ draw_text(10, 130, CrapPointerGetChangedNoUpdate(instancePointer2));
 draw_text(10, 170, CrapPointerGet(structPointer1));
 draw_text(10, 190, CrapPointerGetChanged(structPointer1));
 draw_text(10, 210, CrapPointerGetChangedNoUpdate(structPointer2));
+draw_text(10, 250, string(CrapPointerGet(arrayContainerPointer1)));
+draw_text(10, 270, CrapPointerGetChanged(arrayContainerPointer1));
+draw_text(10, 290, CrapPointerGetChangedNoUpdate(arrayContainerPointer2));
