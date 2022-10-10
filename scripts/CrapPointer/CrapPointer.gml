@@ -1,6 +1,3 @@
-/// Creates a crapPointer, expressed internally as an array
-/// The scope argument should be set to a struct
-/// 
 /// @param scope
 /// @param variableName
 
