@@ -4,8 +4,6 @@
 
 <p align="center"><a href="https://github.com/JujuAdams/CrapPointer/releases/">Download the .yymps</a></p>
 
-<p align="center">Chat about CrapPointer on the <a href="https://discord.gg/8krYCqr">Discord server</a></p>
-
 &nbsp;
 
 CrapPointer is a rudimentary implementation of pointer-like behaviour for GameMaker. crapPointers allow you to create a reference to a variable stored in either an instance, struct, or `global` scope, and then get/set that variable later using that reference. I'm told this is sort of the same idea as Rust's box pointers or C++'s smart pointers, but I have no idea if that's accurate or not.
