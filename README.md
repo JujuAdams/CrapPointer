@@ -10,7 +10,7 @@ CrapPointer is a rudimentary implementation of pointer-like behaviour for GameMa
 
 A crapPointer is created using the appropriately named `CrapPointer()` function. It must be given a scope (an instance or a struct or the keyword `global`) and a variable name as a string. A crapPointer cannot be created to a variable that does not yet exist. You can get the value of the variable that the pointer references by using `CrapPointerGet()` and you can set the variable using `CrapPointerSet()`.
 
-**You cannot create pointers to arrays due to limitations with GameMaker's `weak_ref_create()`.**
+**You cannot create pointers to arrays due to limitations with GameMaker's `weak_ref_create()`.** If you need a pointer to an array, wrap it in a struct first.
 
 CrapPointers aren't very fast. I recommend you use local `var` caching of values in order to squeeze extra performance out of crapPointers i.e.
 
